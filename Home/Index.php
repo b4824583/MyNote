@@ -57,7 +57,7 @@ else
                         時間
                     </th>
                     <th>
-                        <a class="btn btn-success btn-sm" href="Create.php"  style="<?php echo user::IsAdmin($IsAdmin) ?>" >新增</a>
+                        <a class="btn btn-success btn-sm" href="Create.php"  style="<?php echo user::IsAdmin($IsAdmin) ?>" ><i class="glyphicon glyphicon-plus"></i></a>
                     </th>
                     <th>
 
@@ -85,11 +85,11 @@ else
                         <?php
                         if($results["IsHidden"]==0)
                         {
-                         echo "<a  class='btn btn-default btn-sm disabled'>否</a>";   
+                         echo "<i class='glyphicon glyphicon-eye-open'></i>";   
                         }
                         else
                         {
-                            echo "<a  class='btn btn-default btn-sm disabled'>是</a>";
+                            echo "<i class='glyphicon glyphicon-eye-close'></i>";
                         }
                             ?>
                     </td>                     
@@ -99,10 +99,10 @@ else
                                 ?>
                     </td>
                     <td>
-                        <a class="btn btn-info btn-sm"  href="Edit.php?Id=<?php echo $results["Id"] ?>" style="<?php echo user::IsAdmin($IsAdmin) ?>">修改</a>
+                        <a class="btn btn-info btn-sm"  href="Edit.php?Id=<?php echo $results["Id"] ?>" style="<?php echo user::IsAdmin($IsAdmin) ?>"><i class="glyphicon glyphicon-pencil"></i></a>
                     </td>
                     <td>
-                        <a class="btn btn-danger btn-sm" href="Delete.php?Id=<?php echo $results["Id"] ?>" style="<?php echo user::IsAdmin($IsAdmin) ?>" onclick="return confirm('是否刪除?');">刪除</a>
+                        <a class="btn btn-danger btn-sm" href="Delete.php?Id=<?php echo $results["Id"] ?>" style="<?php echo user::IsAdmin($IsAdmin) ?>" onclick="return confirm('是否刪除?');"><i class="glyphicon glyphicon-trash"></i></a>
                     </td>
 
 
