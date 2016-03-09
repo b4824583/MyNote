@@ -57,7 +57,7 @@ else
                         時間
                     </th>
                     <th>
-                        <a class="btn btn-default" href="Create.php"  style="<?php echo user::IsAdmin($IsAdmin) ?>" >新增</a>
+                        <a class="btn btn-success btn-sm" href="Create.php"  style="<?php echo user::IsAdmin($IsAdmin) ?>" >新增</a>
                     </th>
                     <th>
 
@@ -82,16 +82,27 @@ else
                         <?=$results["Author"]?>
                     </td>
                     <td>
-                        <?= $results["IsHidden"] ?>
+                        <?php
+                        if($results["IsHidden"]==0)
+                        {
+                         echo "<a  class='btn btn-default btn-sm disabled'>否</a>";   
+                        }
+                        else
+                        {
+                            echo "<a  class='btn btn-default btn-sm disabled'>是</a>";
+                        }
+                            ?>
                     </td>                     
                     <td>
-                        <?= $results["Datetime"] ?>
+                        <?php
+                        echo date("Y/m/d",strtotime($results["Datetime"]));
+                                ?>
                     </td>
                     <td>
-                        <a class="btn btn-default"  href="Edit.php?Id=<?php echo $results["Id"] ?>" style="<?php echo user::IsAdmin($IsAdmin) ?>">修改</a>
+                        <a class="btn btn-info btn-sm"  href="Edit.php?Id=<?php echo $results["Id"] ?>" style="<?php echo user::IsAdmin($IsAdmin) ?>">修改</a>
                     </td>
                     <td>
-                        <a class="btn btn-default" href="Delete.php?Id=<?php echo $results["Id"] ?>" style="<?php echo user::IsAdmin($IsAdmin) ?>" onclick="return confirm('是否刪除?');">刪除</a>
+                        <a class="btn btn-danger btn-sm" href="Delete.php?Id=<?php echo $results["Id"] ?>" style="<?php echo user::IsAdmin($IsAdmin) ?>" onclick="return confirm('是否刪除?');">刪除</a>
                     </td>
 
 
@@ -168,13 +179,13 @@ else
                 if(isset($_SESSION["Username"]))
                 {
                     ?>
-                <a href="../User/Logout.php" class="btn btn-default">登出</a>
+                <a href="../User/Logout.php" class="btn btn-warning btn-sm">登出</a>
                 <?php
                 }
                 else
                 {
                     ?>
-                 <a href="../User/Login.php" class="btn btn-default">登入</a>
+                 <a href="../User/Login.php" class="btn btn-primary btn-sm">登入</a>
                     <?php
                 }
                 ?>
@@ -184,7 +195,7 @@ else
             <table style="" class="table table-bordered">
                 <tr>
                     <th>類別
-                    <a class="btn btn-default" href="../Tag/Index.php" style="<?php echo user::IsAdmin($IsAdmin) ?>">管理</a>
+                    <a class="btn btn-primary btn-sm" href="../Tag/Index.php" style="<?php echo user::IsAdmin($IsAdmin) ?>">管理</a>
                     </th>                    
                 </tr>
                 <?php
@@ -222,7 +233,7 @@ else
                         <th>名稱</th>
                         <th>是否為管理員</th>
                         <th>
-                            <a href="../User/Index.php" class="btn btn-default">
+                            <a href="../User/Index.php" class="btn btn-primary btn-sm">
                                 管理
                             </a>
                         </th>
