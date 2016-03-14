@@ -79,7 +79,7 @@ else
                         </a>
                     </td>
                     <td>
-                        <?=$results["Author"]?>
+                        <?=$results["NickName"]?>
                     </td>
                     <td>
                         <?php
