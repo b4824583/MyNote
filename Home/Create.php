@@ -19,7 +19,7 @@ $user_array=$result->fetchAll();
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body style="width:800px; margin: auto">
+    <body style="width:1200px; margin: auto">
         <a href="Index.php" class="btn btn-default">首頁</a>
         <form action="Create_post.php" method="POST">
             <div class="form-group">
@@ -52,9 +52,10 @@ $user_array=$result->fetchAll();
                 
             <div class="form-group">
                 <label>是否隱藏</label>
-                <input class="form-control" type="checkbox" name="IsHidden" value=1>
-            </div>
-            <input  type="submit" value="確認" name="submit">
+                <input class="" type="checkbox" name="IsHidden" value=1>
+
+            <input  type="submit" class="btn btn-success" value="確認" name="submit">
+                        </div>
         </form>
         
 

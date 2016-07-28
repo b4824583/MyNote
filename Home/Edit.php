@@ -17,7 +17,7 @@ $user_array=$result->fetchAll();
 
 
 
-        <div style="width:800; margin:auto">
+        <div style="width:1200px; margin:auto">
         <a href="Index.php" class="btn btn-default" >首頁</a>
         <form action="Edit_post.php" method="POST" >
             <div class="form-group">
@@ -82,10 +82,11 @@ $user_array=$result->fetchAll();
             </div>
             <div class="form-group">
                 <label>是否隱藏</label>
-                <input class="form-control" type="checkbox" name="IsHidden" value="1" <?php  if($result_array[0]["IsHidden"]==1){  echo  "checked";}  ?>>
-            </div>
+                <input class="" type="checkbox" name="IsHidden" value="1" <?php  if($result_array[0]["IsHidden"]==1){  echo  "checked";}  ?>>
+
             <input type="hidden" value="<?=$Id?>" name="Id">
-            <input  type="submit" value="確認" name="submit">
+            <input  type="submit" class="btn-info btn" value="確認" name="submit">
+            </div>
         </form>
         
 <?php

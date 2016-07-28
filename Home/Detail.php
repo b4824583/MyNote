@@ -16,7 +16,7 @@ $tag_array=$result->fetchAll();
  */
 
 ?>
-  <div style="width:800px; margin:auto" class="bs-example bs-example-type">
+  <div style="width:1200px; margin:auto" class="bs-example bs-example-type">
         <a href="Index.php" class="btn btn-default" >首頁</a>
         <form action="Edit_post.php" method="POST" >
             <div class="form-group">
@@ -29,42 +29,42 @@ $tag_array=$result->fetchAll();
                 <div><?=$result_array[0]["Content"] ?></div>
             </div>
             <div class="form-group">
-                <label>類別</label>
-                <!--<input class="form-control" type="number" name="ClassTag" placeholder="category"  value="<?=$result_array[0]["ClassTag"] ?>">-->
-                <div>                
-                    <?php
-                    foreach($tag_array as $key =>$value):
-                        if($result_array[0]["ClassTag"]==$value["Id"])
-                        {
-                            echo $value["Name"];
-                            break;
-                        }
+                <table class="table-bordered table">
+                    <tr>
+                        <th>類別</th>
+                        <th>編輯人</th>
+                        <th>是否隱藏</th>
+                    </tr>
+                    <tr>
+                        <td>
+                             <?php
+                            foreach($tag_array as $key =>$value):
+                                if($result_array[0]["ClassTag"]==$value["Id"])
+                                {
+                                    echo $value["Name"];
+                                    break;
+                                }
 
-                        ?>
-                    
-                        
-                        <?php
-                    endforeach;
-                    ?>
-                </div>
-                    <!--<option >asd</option>-->
+                                ?>
+
+
+                                <?php
+                            endforeach;
+                            ?>
+                        </td>
+                        <td>
+                             <?php echo $result_array[0]["Author"];?>
+                        </td>
+                        <td>
+                            <input  type="checkbox" name="IsHidden" disabled=""  value="1" <?php  if($result_array[0]["IsHidden"]==1){  echo  "checked";}  ?>>
+                        </td>
+                    </tr>
+                </table>
+
             </div>
-            <div class="form-group">
-                <label>編輯人</label>
-                <!--<input class="form-control" type="text" name="Author"  value="<?=$result_array[0]["Author"] ?>" >-->
-                <div>
-                    <?php echo $result_array[0]["Author"];?>
-                </div>
-                    
-            </div>
-            <div class="checkbox">
-                <!--<label>是否顯示</label>-->
-                <label>
-                <input  type="checkbox" name="IsHidden" disabled=""  value="1" <?php  if($result_array[0]["IsHidden"]==1){  echo  "checked";}  ?>> 是否隱藏
-                </label>                
-                </div>
-            <input type="hidden" value="<?=$Id?>" name="Id">
-            <input  type="submit" value="確認" name="submit">
+
+
+
         </form>
   </div>
 <?php
