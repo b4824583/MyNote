@@ -19,7 +19,7 @@ $user_array=$result->fetchAll();
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body style="width:1200px; margin: auto">
+    <body style="width:1400px; margin: auto">
         <a href="Index.php" class="btn btn-default">首頁</a>
         <form action="Create_post.php" method="POST">
             <div class="form-group">

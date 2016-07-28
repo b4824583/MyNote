@@ -16,7 +16,7 @@ $tag_array=$result->fetchAll();
  */
 
 ?>
-  <div style="width:1200px; margin:auto" class="bs-example bs-example-type">
+  <div style="width:1400px; margin:auto" class="bs-example bs-example-type">
         <a href="Index.php" class="btn btn-default" >首頁</a>
         <form action="Edit_post.php" method="POST" >
             <div class="form-group">

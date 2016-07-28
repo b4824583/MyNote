@@ -17,7 +17,7 @@ $user_array=$result->fetchAll();
 
 
 
-        <div style="width:1200px; margin:auto">
+        <div style="width:1400px; margin:auto">
         <a href="Index.php" class="btn btn-default" >首頁</a>
         <form action="Edit_post.php" method="POST" >
             <div class="form-group">
