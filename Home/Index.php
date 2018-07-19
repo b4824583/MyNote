@@ -13,7 +13,7 @@ $sql= "SELECT * FROM V_ARTICLE_DETAIL $where_sql";
 $result = DbContext::Query($sql, array());
 $result_array = $result->fetchAll();
 
-$sql="SELECT Name,ClassTag FROM V_ARTICLE_DETAIL";
+$sql="SELECT Name,ClassTag FROM V_ARTICLE_DETAIL ORDER BY Name";
 $result=  DbContext::Query($sql, array());
 $result_count_array=$result->fetchAll();
 //$result_array=0;
@@ -192,11 +192,15 @@ else
                 
             </div>
                 
-            <table style="" class="table table-bordered">
+            <table style="" class="table ">
                 <tr>
                     <th>類別
-                    <a class="btn btn-primary btn-sm" href="../Tag/Index.php" style="<?php echo user::IsAdmin($IsAdmin) ?>">管理</a>
-                    </th>                    
+                    </th>
+                    <th>                    
+                        <a class="btn btn-primary btn-sm" href="../Tag/Index.php" style="<?php echo user::IsAdmin($IsAdmin) ?>">管理</a>
+                    </th>
+                    <th>數量</th>
+                    
                 </tr>
                 <?php
                 $sum_count=0;
@@ -206,20 +210,39 @@ else
                 endforeach;
                 ?>
                 <tr>
+                    <td></td>
                     <td>
                         <a href="../Home/Index.php">
-                            全部<?="(".$sum_count.")"?>
+                            全部
                         </a>
+                    </td>
+                    <td>
+                        <?php echo $sum_count?>
                     </td>
                 </tr>
                 <?php
+                $prefix="";
                 foreach($count_array as $value):
                 ?>
                 <tr>
                     <td>
+                        <?php 
+                        if($prefix!=substr($value["Name"],0,1))
+                        {
+                           echo substr($value["Name"],0,1);
+                           $prefix=substr($value["Name"],0,1);                            
+
+                        }                          
+                        ?>
+                    </td>
+                    <td>
                         <a href="../Home/Index.php?ClassTag=<?=$value["ClassTag"]?>" style="">
-                      <?php echo $value["Name"]."(".$value["Count"].")"?>
+                      <?php echo $value["Name"]?>
                         </a>
+                    </td>
+                    <td>
+                        <?php echo $value["Count"]?>
+                        
                     </td>
                 </tr>
                 <?php
