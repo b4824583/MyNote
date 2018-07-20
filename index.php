@@ -6,6 +6,6 @@
  * and open the template in the editor.
  */
 
-header("Location:../MyNote/Home/Index.php");
+header("Location:../Home/Index.php");
 //echo "asdsada";
 ?>
